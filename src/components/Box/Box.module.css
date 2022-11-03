@@ -1,0 +1,42 @@
+.container {
+  width: 45%;
+  margin: 20px auto;
+  border: 1px solid #167fe0;
+}
+
+h1 {
+  text-align: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  padding: 30px;
+}
+label {
+  margin-top: 15px;
+}
+input {
+  border: 1px solid #167fe0;
+}
+input,
+.button {
+  padding: 10px;
+  border-radius: 5px;
+}
+.boxColor {
+  padding: 2px;
+}
+
+.button {
+  margin: 10px 0;
+  border: none;
+  background-color: #167fe0;
+}
+
+.boxes {
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+}

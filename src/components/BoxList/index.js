@@ -6,11 +6,18 @@ class BoxList extends Component {
       width: `${this.props.width}px`,
       height: `${this.props.height}px`,
       background: this.props.color,
+      marginLeft: "15px",
     };
     return (
       <>
-        <div style={inlineStyle}></div>
-        <button onClick={this.props.removeBox}>X</button>
+        <div style={inlineStyle}>
+          <button
+            onClick={this.props.removeBox}
+            style={{ margin: "5px", background: "#fff", border: "none" }}
+          >
+            X
+          </button>
+        </div>
       </>
     );
   }
