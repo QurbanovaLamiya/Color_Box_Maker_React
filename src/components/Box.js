@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import BoxList from "./BoxList";
+import { v4 } from "uuid";
 
 class Box extends Component {
   constructor() {
@@ -19,13 +20,21 @@ class Box extends Component {
     let boxHeight = this.boxHeightRef.current.value;
     let boxColor = this.boxColorRef.current.value;
 
-    let newArr = [...this.state.box, { boxWidth, boxHeight, boxColor }];
+    let newArr = [
+      ...this.state.box,
+      { boxWidth, boxHeight, boxColor, id: v4() },
+    ];
 
     this.setState({ box: newArr });
   };
 
+  removeBox = (id) => {
+    this.setState({
+      box: this.state.box.filter((box) => box.id !== id),
+    });
+  };
+
   render() {
-    console.log(this.state.box);
     return (
       <div>
         <h1>Box Maker</h1>
@@ -57,12 +66,13 @@ class Box extends Component {
         </form>
         <div>
           {this.state.box
-            .map((box, index) => (
+            .map((box) => (
               <BoxList
-                key={`box-index-${index}`}
+                key={`box-index-${box.id}`}
                 width={box.boxWidth}
                 height={box.boxHeight}
                 color={box.boxColor}
+                removeBox={() => this.removeBox(box.id)}
               />
             ))
             .reverse()}
